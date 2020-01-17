@@ -1,4 +1,6 @@
-# <center>Permutation</center>
+# <center>Permutation, Subset & Combination</center>
+
+## PART I: Permutation
 
 Problem: Given a list, return all possible permutations of such list.
 
@@ -45,4 +47,74 @@ def perm_with_dup(arr):
         res = curr
     return res
 ```
+
+## PART II: Subset
+Problem: Given a set, return all possible subsets.  
+Leetcode Problems: [LC78](https://leetcode.com/problems/subsets/), [LC90](https://leetcode.com/problems/subsets-ii/)   
+
+The solution is very similar to generating permutations in the iterative fashion, with the difference being adding the new element to the existing subsets and append the new subsets to the list rather than replacing the existing ones. To see this, 
+```python
+def subsets(S):
+    res = [[]]
+    for i in S:
+        res += [l + [i] for l in res]
+    return res
+```
+
+If there exists duplicates in the set but require no duplicated subsets in the output. To avoid duplicates, we just need to sort the set first and skip in the loop when S[i] == S[i-1].
+
+
+## PART III: Combination
+Problem: Get all combinations of K numbers out of 1, ..., n.  
+Leetcode Problems: [LC77](https://leetcode.com/problems/combinations/), [LC39](https://leetcode.com/problems/combination-sum/)  
+*There could be another variation which is to get the number of different combinations of K numbers.  
+This is a typical DFS + backtracking problem. The solution is as follows:  
+```python
+def getComb(k, n):
+    res = []
+    def recur(curr, start):
+        if len(curr) == k:
+            res.append(curr)
+        elif start > n:
+            return
+        else:
+            for i in range(start, n + 1):
+                curr.append(i)
+                recur(curr, i + 1)
+                curr.pop()
+    recur([], 1)
+    return res
+```
+Complexity: time O(n^K)  
+__Combination Sum__: given a set of numbers, find all combinations with sum being a target value.   
+The solution is similar to above, with the termination criterion being the sum of the curr is each to the target. If allowing repeated use of each value, we just need to call recur() twice in the loop. For example,
+```python
+recur(curr+[i], i)
+recur(curr, i+1)
+```
+The complete solution to LC39 is as follows:
+```python
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        candidates.sort()
+        candidates = [x for x in candidates if x <= target ]
+        res = []
+        def dfs(i, curr_path):
+            if i >= len(candidates): return
+            if candidates[i] + sum(curr_path) == target:
+                res.append(curr_path + [candidates[i]])
+            elif candidates[i] + sum(curr_path) > target:
+                return
+            else:
+                dfs(i, curr_path+[candidates[i]])
+                dfs(i+1, curr_path)
+        dfs(0, [])
+        return res
+```
+
 
