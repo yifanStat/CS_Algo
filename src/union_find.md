@@ -1,6 +1,6 @@
 # <center>Union Find Algorithm</center>
 
-Leetcode Problems: [LC261](https://leetcode.com/problems/graph-valid-tree/), [LC1319](https://leetcode.com/problems/number-of-operations-to-make-network-connected/)  
+Leetcode Problems: [LC261](https://leetcode.com/problems/graph-valid-tree/), [LC959](https://leetcode.com/problems/regions-cut-by-slashes/), [LC1319](https://leetcode.com/problems/number-of-operations-to-make-network-connected/)  
 
 This algorithm is effective in detecting cycles. The usual set up is the follows: 
 ```python
