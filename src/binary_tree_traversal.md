@@ -85,3 +85,27 @@ def levelPrint(root):
         ct = next_n
     return res
 ```
+
+__Reconstruct Binary Tree__ from some traversal order: [LC106](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/), [LC1028](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/)  
+Problem: Given inorder and postorder traversal of a tree, construct the binary tree.  
+Recursion is very effective in solving this kind of problems. Actually, when comes to binary tree problems, thinking about recursion first would usually be useful. In each recursion, the last element of the postorder traversal is the root. Now, we just need to identify the left branch and right branch. When there is no duplicates in the tree, we just need to find the index of root in the inorder traversal. See the code below:
+```python
+class Solution(object):
+    def buildTree(self, inorder, postorder):
+        """
+        :type inorder: List[int]
+        :type postorder: List[int]
+        :rtype: TreeNode
+        """
+        if len(inorder) == 0: return None
+        root_val = postorder.pop()
+        root = TreeNode(root_val)
+        idx = inorder.index(root_val)
+        root.left = self.buildTree(inorder[:idx], postorder[:idx])
+        root.right = self.buildTree(inorder[idx+1:], postorder[idx:])
+        return root
+```
+Complexity: time O(n)
+In order to reduce memory, we can utilize a help function that indicates the first and last index of the current subtree in the inorder traversal and do a inplace pop up in the postorder array. 
+
+

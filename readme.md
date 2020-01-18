@@ -16,6 +16,8 @@ This repository aims to summarizing several key categorical of coding problems f
 ### 2.3 Prefix Tree (Trie)
 
 ## 3. Graph
+A good tutorial on graph algorithms: http://shlegeris.com/2016/07/02/graph?fbclid=IwAR1BLxnoyJRjEGoLmABY6q3t7YztIv1TpbfikVAVAEgumRqI-RMAdkKabww
+
 ### 3.1 Shortest Distance (BFS)
 
 ### 3.2 DFS
