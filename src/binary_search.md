@@ -1,6 +1,6 @@
 # <center>Binary Search</center>
 
-Binary search is essential in many advanced algorithms. To apply binary search, it is required that the array is __sorted__. A usual set up is as follows:  
+Binary search is essential in many advanced algorithms. [Bisect package](https://docs.python.org/3/library/bisect.html) in python provides good solutions to this class of problems. This document analyze the core of the search function in details and discuss various extension of that. First of all, to apply binary search, it is required that the array is __sorted__. A usual set up is as follows:  
 > Find the index of the largest value which is no larger than a given target T.
 
 There are other variations of the problem setup. For example, find whether a given value exist in an array. Or, find the smallest value that is larger or equal to a given T. Now, here provides a template to solve these problems.
