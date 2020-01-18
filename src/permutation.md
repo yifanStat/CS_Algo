@@ -66,7 +66,7 @@ If there exists duplicates in the set but require no duplicated subsets in the o
 
 ## PART III: Combination
 Problem: Get all combinations of K numbers out of 1, ..., n.  
-Leetcode Problems: [LC77](https://leetcode.com/problems/combinations/), [LC39](https://leetcode.com/problems/combination-sum/)  
+Leetcode Problems: [LC77](https://leetcode.com/problems/combinations/), [LC39](https://leetcode.com/problems/combination-sum/), [LC40](https://leetcode.com/problems/combination-sum-ii/)  
 *There could be another variation which is to get the number of different combinations of K numbers.  
 This is a typical DFS + backtracking problem. The solution is as follows:  
 ```python
@@ -116,5 +116,22 @@ class Solution(object):
         dfs(0, [])
         return res
 ```
-
-
+One variation is to just the number of such combinations. This can be solved by DP.
+```python
+class Solution(object):
+    def combinationSum4(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        if target < min(nums):
+            return 0
+        dp = [0] * (target + 1)
+        dp[0] = 1
+        for x in nums:
+            for i in range(x, target + 1):
+                dp[i] += dp[i - x]
+        return dp[-1]
+```
+Complexity: O(n*target)
