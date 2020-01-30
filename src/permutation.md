@@ -1,6 +1,11 @@
 # <center>Permutation, Subset & Combination</center>
 
-## PART I: Permutation
+## <font color="grey">Table of Contents</font>
+1. [Permutation](#perm)
+2. [Subset](#subsest)
+3. [Combination](#comb)
+
+## PART I: Permutation<a name="perm"></a>
 
 Problem: Given a list, return all possible permutations of such list.
 
@@ -48,7 +53,7 @@ def perm_with_dup(arr):
     return res
 ```
 
-## PART II: Subset
+## PART II: Subset<a name="subset"></a>
 Problem: Given a set, return all possible subsets.  
 Leetcode Problems: [LC78](https://leetcode.com/problems/subsets/), [LC90](https://leetcode.com/problems/subsets-ii/)   
 
@@ -64,7 +69,7 @@ def subsets(S):
 If there exists duplicates in the set but require no duplicated subsets in the output. To avoid duplicates, we just need to sort the set first and skip in the loop when S[i] == S[i-1].
 
 
-## PART III: Combination
+## PART III: Combination<a name="comb"></a>
 Problem: Get all combinations of K numbers out of 1, ..., n.  
 Leetcode Problems: [LC77](https://leetcode.com/problems/combinations/), [LC39](https://leetcode.com/problems/combination-sum/), [LC40](https://leetcode.com/problems/combination-sum-ii/)  
 *There could be another variation which is to get the number of different combinations of K numbers.  
