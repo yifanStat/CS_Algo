@@ -13,3 +13,6 @@ def validateBST(root, lo, hi):
         return False
     return validate(root.left, lo, root.val) and validate(root.right, root.val, hi)
 ```
+
+__2. Recover BST__ [LC99](https://leetcode.com/problems/recover-binary-search-tree/) Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure.  
+
