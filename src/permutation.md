@@ -5,7 +5,12 @@
 2. [Subset](#subsest)
 3. [Combination](#comb)
 
-## PART I: Permutation<a name="perm"></a>
+ <p align="center"> 
+    <img src="../fig/totoro07.jpg" alt="jia you!" width="300px" height="300px">
+ </p>
+
+
+## PART I: Permutation<a name="perm"></a> 
 
 Problem: Given a list, return all possible permutations of such list.
 
